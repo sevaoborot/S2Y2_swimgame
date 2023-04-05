@@ -27,6 +27,11 @@ public class PlayerConfigManager : MonoBehaviour
         }
     }
 
+    public List<PlayerConfiguration> GetPlayerConfigurations()
+    {
+        return PlayerConfigList;
+    }
+
     public void SetPlayerColour(int index, Material color)
     {
         PlayerConfigList[index].playerMaterial = color;
@@ -35,7 +40,7 @@ public class PlayerConfigManager : MonoBehaviour
     public void isReadyToPlay(int index)
     {
         PlayerConfigList[index].isReadyToPlay = true;
-        if (PlayerConfigList.Count == maxPlayers && PlayerConfigList.All(p => p.isReadyToPlay == true)) SceneManager.LoadScene("StartScene"); //load game if all the players are ready
+        if (PlayerConfigList.Count == maxPlayers && PlayerConfigList.All(p => p.isReadyToPlay == true)) SceneManager.LoadScene("TestSceneLoad"); //load game if all the players are ready
     }
 
     public void HandlePlayerJoin(PlayerInput _pi)

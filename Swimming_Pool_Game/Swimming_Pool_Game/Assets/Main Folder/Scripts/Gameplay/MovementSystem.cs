@@ -6,7 +6,7 @@ public class MovementSystem : MonoBehaviour
 {
     [SerializeField] float jumpForce;
     [SerializeField] float speed;
-    [SerializeField] int playerIndex;
+    //[SerializeField] int playerIndex;
 
     Vector2 InputDirection;
     Rigidbody _rb;
@@ -27,10 +27,11 @@ public class MovementSystem : MonoBehaviour
         if (collision.gameObject.tag == "Ground") isJumping = false;
     }
 
+    /*
     public int GetIndex()
     {
         return playerIndex;
-    }
+    }*/
 
     public void Jump()
     {

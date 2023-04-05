@@ -7,26 +7,43 @@ using static UnityEngine.InputSystem.PlayerInput;
 
 public class MovementInput : MonoBehaviour
 {
+    [SerializeField] MeshRenderer color;
+
     MovementSystem _mv;
-    PlayerInput _pin;
+    PlayerConfiguration playerConfig;
+    PlayerControls controlls;
 
     private void Awake()
     {
         //_mv = GetComponent<MovementSystem>();
-        var moverAvailable = FindObjectsOfType<MovementSystem>();
-        _pin = GetComponent<PlayerInput>();
-        int index = _pin.playerIndex;
-        Debug.Log(_pin.playerIndex);
-        _mv = moverAvailable.FirstOrDefault(m => m.GetIndex() == index);
+        _mv = GetComponent<MovementSystem>();
+        controlls = new PlayerControls();
+    }
+
+    public void InitializePlayer(PlayerConfiguration pcm)
+    {
+        playerConfig = pcm;
+        color.material = pcm.playerMaterial;
+        playerConfig.playerInput.onActionTriggered += PlayerInput_onActionTriggered;
+    }
+
+
+    private void PlayerInput_onActionTriggered(InputAction.CallbackContext context)
+    {
+        if (context.action.name == controlls.Player.Movement.name)
+        {
+            OnMove(context);
+            //OnJump(context);
+        }
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (/*context.performed &&*/ _mv != null) _mv.Movement(context.ReadValue<Vector2>());
+        if (context.action.name == controlls.Player.Movement.name && _mv != null) _mv.Movement(context.ReadValue<Vector2>());
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (/*context.performed &&*/ _mv != null) _mv.Jump();
+        if (context.action.name == controlls.Player.Movement.name && _mv != null) _mv.Jump();
     }
 }
