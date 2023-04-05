@@ -27,23 +27,19 @@ public class MovementInput : MonoBehaviour
         playerConfig.playerInput.onActionTriggered += PlayerInput_onActionTriggered;
     }
 
-
     private void PlayerInput_onActionTriggered(InputAction.CallbackContext context)
     {
-        if (context.action.name == controlls.Player.Movement.name)
-        {
-            OnMove(context);
-            //OnJump(context);
-        }
+        if (context.action.name == controlls.Player.Movement.name) OnMove(context);
+        if (context.action.name == controlls.Player.Jump.name) OnJump(context);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.action.name == controlls.Player.Movement.name && _mv != null) _mv.Movement(context.ReadValue<Vector2>());
+        if (_mv != null) _mv.Movement(context.ReadValue<Vector2>());
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.action.name == controlls.Player.Movement.name && _mv != null) _mv.Jump();
+        if (_mv != null) _mv.Jump();
     }
 }
