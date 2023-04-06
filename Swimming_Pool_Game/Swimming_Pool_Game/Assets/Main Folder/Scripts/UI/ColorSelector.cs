@@ -6,21 +6,11 @@ using UnityEngine.Events;
 public class ColorSelector : MonoBehaviour
 {
     public UnityEvent<string> ChosenColorEvent;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public List<string> SelectedColors = new List<string>();
 
     public void ChosenColor(string colorName)
     {
         ChosenColorEvent.Invoke(colorName);
+        SelectedColors.Add(colorName);
     }
 }

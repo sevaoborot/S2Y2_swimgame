@@ -14,10 +14,9 @@ public class SpawnPlayerSetupMenu : MonoBehaviour
         var rootMenu = GameObject.Find("MainLayout");
         if (rootMenu != null)
         {
-            
             var menu = Instantiate(playerSetupMenuPrefab, rootMenu.transform);
             input.uiInputModule = menu.GetComponentInChildren<InputSystemUIInputModule>();
-            
+            menu.GetComponent<PlayerSetupMenuController>().DisableSpecButtons(rootMenu.GetComponent<ColorSelector>().SelectedColors);
             menu.GetComponent<PlayerSetupMenuController>().SetPlayerIndex(input.playerIndex);
             rootMenu.GetComponent<ColorSelector>().ChosenColorEvent.AddListener(menu.GetComponent<PlayerSetupMenuController>().DisableButton);
         }

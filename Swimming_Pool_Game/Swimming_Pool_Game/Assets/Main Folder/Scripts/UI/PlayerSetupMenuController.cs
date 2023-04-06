@@ -40,6 +40,15 @@ public class PlayerSetupMenuController : MonoBehaviour
         MenuPanel.SetActive(false);
     }
 
+    public void DisableSpecButtons(List<string> names)
+    {
+        if (names.Count == 0) return;
+        foreach (var name in names)
+        {
+            DisableButton(name);
+        }
+    }
+
     public void SetColor (string name)
     {
         gameObject.SendMessageUpwards("ChosenColor", name);
