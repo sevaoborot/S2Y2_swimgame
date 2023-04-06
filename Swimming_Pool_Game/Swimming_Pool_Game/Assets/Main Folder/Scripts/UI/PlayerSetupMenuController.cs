@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class PlayerSetupMenuController : MonoBehaviour
 {
     int playerIndex;
+
     [SerializeField] TextMeshProUGUI playerTitle;
     [SerializeField] GameObject ReadyPanel;
     [SerializeField] GameObject MenuPanel;
     [SerializeField] Button ReadyButton;
+    
 
     float ignoreInputTime = 1.5f;
     private bool inputEnabled;
@@ -30,10 +34,28 @@ public class PlayerSetupMenuController : MonoBehaviour
     public void SetColor (Material color)
     {
         if (!inputEnabled) return;
-        PlayerConfigManager.Instance.SetPlayerColour(playerIndex, color); 
+        PlayerConfigManager.Instance.SetPlayerColour(playerIndex, color);
         ReadyPanel.SetActive(true);
         ReadyButton.Select();
         MenuPanel.SetActive(false);
+    }
+
+    public void SetColor (string name)
+    {
+        gameObject.SendMessageUpwards("ChosenColor", name);
+    }
+
+    public void DisableButton(string buttonName)
+    {
+        Button[] chosenBType = gameObject.GetComponentsInChildren<Button>();
+        foreach (Button b in chosenBType)
+        {
+            if (b.gameObject.name.Equals(buttonName))
+            {
+                Debug.Log($"FOUND {buttonName}");
+                b.interactable = false;
+            }
+        }
     }
 
     public void ReadyPlayer()
