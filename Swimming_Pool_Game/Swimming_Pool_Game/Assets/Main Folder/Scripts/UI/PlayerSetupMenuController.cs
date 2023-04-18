@@ -61,7 +61,7 @@ public class PlayerSetupMenuController : MonoBehaviour
         {
             if (b.gameObject.name.Equals(buttonName))
             {
-                Debug.Log($"FOUND {buttonName}");
+                //Debug.Log($"FOUND {buttonName}");
                 b.interactable = false;
             }
         }

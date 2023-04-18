@@ -35,7 +35,8 @@ public class MovementInput : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (_mv != null) _mv.Movement(context.ReadValue<Vector2>());
+        if (_mv != null) _mv.GetVector(context.ReadValue<Vector2>());
+        Debug.Log(context.ReadValue<Vector2>());
     }
 
     public void OnJump(InputAction.CallbackContext context)

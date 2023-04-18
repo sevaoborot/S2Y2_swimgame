@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 6986657099159649721}
   - component: {fileID: 4482811358280425804}
   - component: {fileID: 2198149072109359022}
-  - component: {fileID: 6652381374693381473}
   - component: {fileID: 5436949762109830692}
   - component: {fileID: 4870499014305905796}
   - component: {fileID: 2143135200295590176}
+  - component: {fileID: 1905761837856134022}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -88,33 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &6652381374693381473
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7510943859352537409}
-  serializedVersion: 4
-  m_Mass: 2
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 80
-  m_CollisionDetection: 2
 --- !u!64 &5436949762109830692
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -163,7 +136,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 9
-  speed: 7
+  angleSpeed: 0.5
+  velocity: {x: 0, y: 0, z: 0}
+  smoothTime: 1
+  radius: 3
+  centreOfPlaygroud: {x: 0, y: 0, z: 0}
+--- !u!143 &1905761837856134022
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510943859352537409}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5000001
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8941104298755748050
 GameObject:
   m_ObjectHideFlags: 0
