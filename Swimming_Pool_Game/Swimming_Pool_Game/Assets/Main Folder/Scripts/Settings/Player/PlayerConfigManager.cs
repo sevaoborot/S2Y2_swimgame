@@ -40,7 +40,10 @@ public class PlayerConfigManager : MonoBehaviour
     public void isReadyToPlay(int index)
     {
         PlayerConfigList[index].isReadyToPlay = true;
-        if (PlayerConfigList.Count == maxPlayers && PlayerConfigList.All(p => p.isReadyToPlay == true)) SceneManager.LoadScene("Gate3Demo"); //load game if all the players are ready
+        if (PlayerConfigList.Count == maxPlayers && PlayerConfigList.All(p => p.isReadyToPlay == true))
+        {
+            LevelConfigManager.SetScene();
+        }
     }
 
     public void HandlePlayerJoin(PlayerInput _pi)

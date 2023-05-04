@@ -31,16 +31,21 @@ public class MovementInput : MonoBehaviour
     {
         if (context.action.name == controlls.Player.Movement.name) OnMove(context);
         if (context.action.name == controlls.Player.Jump.name) OnJump(context);
+        if (context.action.name == controlls.Player.Sit.name) OnSit(context);
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
         if (_mv != null) _mv.GetVector(context.ReadValue<Vector2>());
-        Debug.Log(context.ReadValue<Vector2>());
     }
 
     public void OnJump(InputAction.CallbackContext context)
     {
         if (_mv != null) _mv.Jump();
+    }
+
+    public void OnSit(InputAction.CallbackContext context)
+    {
+        if (_mv != null) _mv.Sit();
     }
 }
