@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2198149072109359022}
   - component: {fileID: 5436949762109830692}
   - component: {fileID: 4870499014305905796}
-  - component: {fileID: 2143135200295590176}
   - component: {fileID: 1905761837856134022}
+  - component: {fileID: 6029066203943881843}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -123,24 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   color: {fileID: 2198149072109359022}
---- !u!114 &2143135200295590176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7510943859352537409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20bc37d142129274498ce2d68899e6a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpForce: 9
-  angleSpeed: 0.5
-  velocity: {x: 0, y: 0, z: 0}
-  smoothTime: 1
-  radius: 3
-  centreOfPlaygroud: {x: 0, y: 0, z: 0}
 --- !u!143 &1905761837856134022
 CharacterController:
   m_ObjectHideFlags: 0
@@ -167,6 +149,24 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &6029066203943881843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510943859352537409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cc3533ceabfa949a9173195daacf78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForce: 0
+  angleSpeed: 0
+  velocity: {x: 0, y: 0, z: 0}
+  smoothTime: 0
+  radius: 0
+  centreOfPlaygroud: {x: 0, y: 0, z: 0}
 --- !u!1 &8941104298755748050
 GameObject:
   m_ObjectHideFlags: 0

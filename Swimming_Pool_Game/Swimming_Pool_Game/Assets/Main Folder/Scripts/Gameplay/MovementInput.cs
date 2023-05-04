@@ -15,7 +15,6 @@ public class MovementInput : MonoBehaviour
 
     private void Awake()
     {
-        //_mv = GetComponent<MovementSystem>();
         _mv = GetComponent<MovementSystem>();
         controlls = new PlayerControls();
     }

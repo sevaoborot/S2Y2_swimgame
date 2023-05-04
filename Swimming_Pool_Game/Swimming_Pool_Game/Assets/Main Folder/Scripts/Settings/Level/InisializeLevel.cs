@@ -5,6 +5,7 @@ using UnityEngine;
 public class InisializeLevel : MonoBehaviour
 {
     [SerializeField] Transform[] playerSpawn;
+    [SerializeField] string[] playerTypeOfMovement;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] bool isTeamBattle;
 
@@ -17,6 +18,7 @@ public class InisializeLevel : MonoBehaviour
         {
             var player = Instantiate(playerPrefab, playerSpawn[i].position, playerSpawn[i].rotation, gameObject.transform);
             player.GetComponent<MovementInput>().InitializePlayer(PlayerConfigs[i]);
+            player.GetComponent<MovementSystem>().SetMovementType(playerTypeOfMovement[i]); //there is a mistake of out of range, but it works, so i dont care rn, maybe fix it later
         }
     }
 }

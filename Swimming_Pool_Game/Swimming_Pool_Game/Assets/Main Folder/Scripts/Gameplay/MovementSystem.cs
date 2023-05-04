@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MovementSystem : MonoBehaviour
 {
+    /*
     [SerializeField] float jumpForce;
     [Header("MovementSettings")]
     [SerializeField] float angleSpeed;
@@ -12,13 +13,11 @@ public class MovementSystem : MonoBehaviour
     [SerializeField] float radius;
     [SerializeField] Vector3 centreOfPlaygroud;
     //[SerializeField] int playerIndex;
-
-    //float angleX;
-    //float angleZ;
+    */
     Vector2 InputDirection;
-    //Rigidbody _rb;
     CharacterController _char;
     bool isJumping = false;
+    string movementType;
 
     private void Awake()
     {
@@ -36,19 +35,27 @@ public class MovementSystem : MonoBehaviour
         if (collision.gameObject.tag == "Ground") isJumping = false;
     }
 
+
+    public void SetMovementType(string type)
+    {
+        movementType = type;
+    }
+
+
     private void Movement()
     {
         if (InputDirection!=Vector2.zero)
         {
-            Debug.Log("Movement1 is using");
+            switch (movementType) {
+                case "CircleMovement":
+                    Debug.Log("Circle movement");
+                    break;
+                default:
+                    Debug.Log("Regular input");
+                    break;
+            }
         }
     }
-
-    /*
-    public int GetIndex()
-    {
-        return playerIndex;
-    }*/
 
     public void Sit()
     {
@@ -59,7 +66,6 @@ public class MovementSystem : MonoBehaviour
     {
         if (!isJumping)
         {
-            //_rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isJumping = true;
         }
     }
