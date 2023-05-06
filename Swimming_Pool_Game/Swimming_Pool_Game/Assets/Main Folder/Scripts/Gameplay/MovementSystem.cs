@@ -4,16 +4,9 @@ using UnityEngine;
 
 public class MovementSystem : MonoBehaviour
 {
-    /*
-    [SerializeField] float jumpForce;
-    [Header("MovementSettings")]
-    [SerializeField] float angleSpeed;
-    [SerializeField] Vector3 velocity;
-    [SerializeField] float smoothTime;
-    [SerializeField] float radius;
-    [SerializeField] Vector3 centreOfPlaygroud;
-    //[SerializeField] int playerIndex;
-    */
+    [SerializeField] Vector3 centreOfMap;
+    [SerializeField] float rotationAngle;
+
     Vector2 InputDirection;
     CharacterController _char;
     bool isJumping = false;
@@ -41,6 +34,13 @@ public class MovementSystem : MonoBehaviour
         movementType = type;
     }
 
+    private float CountAngleBetweenVectors()
+    {
+        Vector2 playerVector = new Vector2(transform.position.x - centreOfMap.x, transform.position.z - centreOfMap.z);
+        float angleCos = (playerVector.x * InputDirection.x + playerVector.y * InputDirection.y) / (Mathf.Sqrt(Mathf.Pow(playerVector.x, 2) + Mathf.Pow(playerVector.y, 2)) * Mathf.Sqrt(Mathf.Pow(InputDirection.x, 2) + Mathf.Pow(InputDirection.y, 2)));
+        float angle = Mathf.Acos(angleCos) * Mathf.Rad2Deg;
+        return angle;
+    }
 
     private void Movement()
     {
@@ -48,7 +48,11 @@ public class MovementSystem : MonoBehaviour
         {
             switch (movementType) {
                 case "CircleMovement":
-                    Debug.Log("Circle movement");
+                    float rotationSpeed;
+                    float playerToInputAngle = CountAngleBetweenVectors();
+                    if (playerToInputAngle < rotationAngle) rotationSpeed = playerToInputAngle * InputDirection.normalized.y;
+                    else rotationSpeed = rotationAngle * InputDirection.normalized.y;
+                    transform.RotateAround(centreOfMap, Vector3.up, rotationSpeed*Time.deltaTime);
                     break;
                 default:
                     Debug.Log("Regular input");
