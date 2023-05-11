@@ -7,6 +7,7 @@ public class MovementSystem : MonoBehaviour
     [SerializeField] Vector3 centreOfMap;
     [SerializeField] float rotationAngle;
 
+    Vector2 centreDot;
     Vector2 InputDirection;
     CharacterController _char;
     bool isJumping = false;
@@ -16,6 +17,7 @@ public class MovementSystem : MonoBehaviour
     {
         _char = GetComponent<CharacterController>();
         Debug.Log(transform.position.y);
+        centreDot = new Vector2(centreOfMap.x, centreOfMap.z);
     }
 
     private void Update()
@@ -34,12 +36,16 @@ public class MovementSystem : MonoBehaviour
         movementType = type;
     }
 
-    private float CountAngleBetweenVectors()
+    private Vector2 FindVectorFromCentreToPos()
     {
-        Vector2 playerVector = new Vector2(transform.position.x - centreOfMap.x, transform.position.z - centreOfMap.z);
-        float angleCos = (playerVector.x * InputDirection.x + playerVector.y * InputDirection.y) / (Mathf.Sqrt(Mathf.Pow(playerVector.x, 2) + Mathf.Pow(playerVector.y, 2)) * Mathf.Sqrt(Mathf.Pow(InputDirection.x, 2) + Mathf.Pow(InputDirection.y, 2)));
-        float angle = Mathf.Acos(angleCos) * Mathf.Rad2Deg;
-        return angle;
+        return new Vector2(transform.position.x - centreOfMap.x, transform.position.z - centreOfMap.z);
+    }
+
+    private float isOnARightSide (Vector2 A, Vector2 B, Vector2 C)  // AB - vector with A start dot, C - random dot in a plane
+    {
+        float D = (C.x - A.x) * (B.y - A.y) - (C.y - A.y) * (B.x - A.x);
+        Debug.Log(D);
+        return D;
     }
 
     private void Movement()
@@ -48,11 +54,13 @@ public class MovementSystem : MonoBehaviour
         {
             switch (movementType) {
                 case "CircleMovement":
-                    float rotationSpeed;
-                    float playerToInputAngle = CountAngleBetweenVectors();
-                    if (playerToInputAngle < rotationAngle) rotationSpeed = playerToInputAngle * InputDirection.normalized.y;
-                    else rotationSpeed = rotationAngle * InputDirection.normalized.y;
-                    transform.RotateAround(centreOfMap, Vector3.up, rotationSpeed*Time.deltaTime);
+                    float rotationSpeed = rotationAngle;
+                    Vector2 pos2 = new Vector2(transform.position.x, transform.position.y); //current position in 2d
+                    Vector2 positionVector = FindVectorFromCentreToPos();
+                    float playerToInputAngle = Vector3.Angle(positionVector, InputDirection);
+                    if (playerToInputAngle < rotationAngle) rotationSpeed = playerToInputAngle;
+                    if (isOnARightSide(centreDot,pos2,InputDirection)<=0) rotationSpeed *= -1;
+                    transform.RotateAround(centreOfMap, Vector3.up, rotationSpeed * Time.deltaTime);
                     break;
                 default:
                     Debug.Log("Regular input");
