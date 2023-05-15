@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centreOfMap: {x: 0, y: 0, z: 0}
-  rotationAngle: 20
+  rotationAngle: 30
 --- !u!1 &8941104298755748050
 GameObject:
   m_ObjectHideFlags: 0
