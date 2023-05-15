@@ -95,6 +95,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b29dfbb0-3ce7-4d6e-9576-28631c11b1e8
     m_ActionName: Player/Select[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 55eec60a-054f-4025-b63d-5350a1857555
+    m_ActionName: Player/Sit[/XInputControllerWindows/buttonEast,/XInputControllerWindows1/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 95f8468b-fde0-4317-888d-394cf6f483d9
+    m_ActionName: Player/Shoot[/Keyboard/space,/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -112,3 +120,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6604fb23a7f5568408d92d5ff99b423c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  color: {fileID: 0}

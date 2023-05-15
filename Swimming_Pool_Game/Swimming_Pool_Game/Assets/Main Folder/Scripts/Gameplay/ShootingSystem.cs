@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
+    [SerializeField] int maxBullets;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +15,10 @@ public class ShootingSystem : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Shoot()
+    {
+        Debug.Log("Shoot!");
     }
 }

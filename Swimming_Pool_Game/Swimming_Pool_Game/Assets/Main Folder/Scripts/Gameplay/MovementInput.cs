@@ -10,12 +10,14 @@ public class MovementInput : MonoBehaviour
     [SerializeField] MeshRenderer color;
 
     MovementSystem _mv;
+    ShootingSystem _shs;
     PlayerConfiguration playerConfig;
     PlayerControls controlls;
 
     private void Awake()
     {
         _mv = GetComponent<MovementSystem>();
+        _shs = GetComponent<ShootingSystem>();
         controlls = new PlayerControls();
     }
 
@@ -31,6 +33,7 @@ public class MovementInput : MonoBehaviour
         if (context.action.name == controlls.Player.Movement.name) OnMove(context);
         if (context.action.name == controlls.Player.Jump.name) OnJump(context);
         if (context.action.name == controlls.Player.Sit.name) OnSit(context);
+        if (context.action.name == controlls.Player.Shoot.name) OnShoot(context);
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -46,5 +49,10 @@ public class MovementInput : MonoBehaviour
     public void OnSit(InputAction.CallbackContext context)
     {
         if (_mv != null) _mv.Sit();
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (_shs != null && context.performed) _shs.Shoot();
     }
 }

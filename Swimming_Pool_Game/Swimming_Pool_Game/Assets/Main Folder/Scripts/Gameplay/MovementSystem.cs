@@ -44,7 +44,6 @@ public class MovementSystem : MonoBehaviour
     private float isOnARightSide (Vector2 A, Vector2 B, Vector2 C)  // AB - vector with A start dot, C - random dot in a plane
     {
         float D = (C.x - A.x) * (B.y - A.y) - (C.y - A.y) * (B.x - A.x);
-        Debug.Log(D);
         return D;
     }
 

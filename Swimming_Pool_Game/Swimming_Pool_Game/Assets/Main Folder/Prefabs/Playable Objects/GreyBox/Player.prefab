@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4482811358280425804}
   - component: {fileID: 2198149072109359022}
   - component: {fileID: 5436949762109830692}
-  - component: {fileID: 4870499014305905796}
   - component: {fileID: 1905761837856134022}
+  - component: {fileID: 4870499014305905796}
   - component: {fileID: 6029066203943881843}
+  - component: {fileID: 784360942944022513}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -110,19 +111,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4870499014305905796
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7510943859352537409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6604fb23a7f5568408d92d5ff99b423c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  color: {fileID: 2198149072109359022}
 --- !u!143 &1905761837856134022
 CharacterController:
   m_ObjectHideFlags: 0
@@ -149,6 +137,19 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4870499014305905796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510943859352537409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6604fb23a7f5568408d92d5ff99b423c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {fileID: 2198149072109359022}
 --- !u!114 &6029066203943881843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +164,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centreOfMap: {x: 0, y: 0, z: 0}
   rotationAngle: 30
+--- !u!114 &784360942944022513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7510943859352537409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6eaa3d794773c246919e5499aea896a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBullets: 3
 --- !u!1 &8941104298755748050
 GameObject:
   m_ObjectHideFlags: 0
