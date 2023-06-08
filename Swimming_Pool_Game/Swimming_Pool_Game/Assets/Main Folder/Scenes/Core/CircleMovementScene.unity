@@ -628,6 +628,9 @@ MonoBehaviour:
   playerTypeOfMovement:
   - CircleMovement
   - CircleMovement
+  playerTypeOfAttack:
+  - shoot
+  - 
   playerPrefab: {fileID: 7510943859352537409, guid: 6155ec60e8f16d04ca508104a4e1c2b0,
     type: 3}
   isTeamBattle: 0

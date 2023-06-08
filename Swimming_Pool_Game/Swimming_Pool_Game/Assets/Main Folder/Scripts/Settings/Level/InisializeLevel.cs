@@ -6,11 +6,11 @@ public class InisializeLevel : MonoBehaviour
 {
     [SerializeField] Transform[] playerSpawn;
     [SerializeField] string[] playerTypeOfMovement;
+    [SerializeField] string[] playerTypeOfAttack;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] bool isTeamBattle;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         transformShuffle(); //using Fisher-yets algorithm 
         var PlayerConfigs = PlayerConfigManager.Instance.GetPlayerConfigurations().ToArray();
@@ -20,6 +20,7 @@ public class InisializeLevel : MonoBehaviour
             var player = Instantiate(playerPrefab, playerSpawn[i].position, playerSpawn[i].rotation, gameObject.transform);
             player.GetComponent<MovementInput>().InitializePlayer(PlayerConfigs[i]);
             player.GetComponent<MovementSystem>().SetMovementType(playerTypeOfMovement[i]); //there is a mistake of out of range, but it works, so i dont care rn, maybe fix it later
+            if (playerTypeOfAttack[i] == "Shoot") player.AddComponent<ShootingSystem>();
         }
     }
 
