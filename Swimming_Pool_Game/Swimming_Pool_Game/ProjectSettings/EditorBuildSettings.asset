@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Cesar/Assets/Scenes/Cel Shader.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Main Folder/Scenes/UI/SetupMenuScene.unity
     guid: 55aa2fcb3076dca418da8e6ad937674a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Main Folder/Scenes/Core/DefaultScene.unity
     guid: e04d502755e6d914894169a8fc9658ec
-  - enabled: 1
+  - enabled: 0
     path: Assets/Main Folder/Scenes/Core/CircleMovementScene.unity
     guid: 3b44d2b6d710f0b4396eac8d18579c14
   - enabled: 1
