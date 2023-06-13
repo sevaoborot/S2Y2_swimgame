@@ -1080,6 +1080,7 @@ GameObject:
   - component: {fileID: 634436448}
   - component: {fileID: 634436447}
   - component: {fileID: 634436451}
+  - component: {fileID: 634436452}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1184,6 +1185,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownText: {fileID: 51189409}
+--- !u!222 &634436452
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634436446}
+  m_CullTransparentMesh: 1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,34 +1360,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1303952547}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9649878096d28bc4da63a08ed23286b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjToMove: {fileID: 1303952547}
-  ObjToPlace: {fileID: 3061875573857714062, guid: a013793bd35c7b1489aa83ba0f2b2197,
+  ObjToMove: {fileID: 919132149155446097, guid: 9ddec07b36863f14d9d758256aecb0f8,
     type: 3}
-  mask:
-    serializedVersion: 2
-    m_Bits: 0
-  LastPosY: 0.15
-  mousepos: {x: 0, y: 0, z: 0}
-  matGrid: {fileID: 2100000, guid: 1df3385392306bf488e07393f2d39862, type: 2}
-  matDefault: {fileID: 2100000, guid: 65d137286e57c9943b3fbb67f3ba9c3e, type: 2}
---- !u!114 &1303952552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303952547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7229414f65a4c804c8336fa348b11608, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjToMove: {fileID: 1303952547}
   ObjToPlace: {fileID: 3061875573857714062, guid: a013793bd35c7b1489aa83ba0f2b2197,
     type: 3}
   mask:
@@ -1682,10 +1670,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1303952548}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9ddec07b36863f14d9d758256aecb0f8,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1303952552}
   m_SourcePrefab: {fileID: 100100000, guid: 9ddec07b36863f14d9d758256aecb0f8, type: 3}
 --- !u!1001 &1936135419612635935
 PrefabInstance:
