@@ -18,9 +18,18 @@ EditorBuildSettings:
     path: Assets/Main Folder/Scenes/Core/CircleMovementScene.unity
     guid: 3b44d2b6d710f0b4396eac8d18579c14
   - enabled: 1
+    path: Assets/Main Folder/Scenes/UI/main menu.unity
+    guid: 3cb87487f3ca2744cbaf4f2faaa78d92
+  - enabled: 1
+    path: Assets/Main Folder/Scenes/UI/Minigames.unity
+    guid: 1e2dfd4744f05f140a3fbaaf10054409
+  - enabled: 1
     path: Assets/Cesar/Assets 1/Assets/Scenes/Grid Scene.unity
     guid: a38906be6533ac54694e8110b1cb4381
   - enabled: 1
     path: Assets/Cesar/Assets 1/Assets/Scenes/Level2.unity
     guid: dabd7c4f6f82cc54897757cc53b7cc52
+  - enabled: 1
+    path: Assets/Tomas/Parcour-watergame/Assets/Scenes/play1.unity
+    guid: b329cde44164060459adaa5b4ea89a43
   m_configObjects: {}
